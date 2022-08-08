@@ -1,7 +1,8 @@
-from flask import Flask, render_template, flash
+from flask import Flask, Response, render_template, request, flash
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired
+
 
 # Create a flask instance
 app = Flask(__name__)
@@ -13,12 +14,21 @@ class NamerForm(FlaskForm):
     submit = SubmitField("Submit")
 
 
-# Create a route dec
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def index():
-    first_name = "Sean"
-    favorite_pizza = ["Pepperoni", "Cheese", "Mushrooms", 41]
-    return render_template("index.html", first_name=first_name, favorite_pizza=favorite_pizza)
+
+    user_agent = request.headers.get('User-Agent')
+    user_agent = user_agent.lower()
+
+    # In your templates directory, create a mobile version of your site (mobile.index.html).
+    # Likewise, add your desired desktop template as well (desktop.index.html).
+
+    if "iphone" in user_agent:
+        return render_template('mobile.index.html')
+    elif "android" in user_agent:
+        return render_template('mobile.index.html')
+    else:
+        return render_template('desktop.index.html')
 
 
 @app.route('/user/<name>')
