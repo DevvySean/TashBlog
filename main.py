@@ -52,6 +52,11 @@ def blog():
     return render_template('blog.html')
 
 
+@app.route('/my-journey')
+def my_journey():
+    return render_template('myDiabetesjourney.html')
+
+
 if __name__ == '__main__':
     app.run(debug=True)
 
