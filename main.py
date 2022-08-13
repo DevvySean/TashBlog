@@ -1,7 +1,4 @@
-from flask import Flask, Response, render_template, request, flash
-from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField
-from wtforms.validators import DataRequired
+from flask import Flask, render_template, request, flash
 
 
 # Create a flask instance
@@ -14,9 +11,6 @@ def index():
 
     user_agent = request.headers.get('User-Agent')
     user_agent = user_agent.lower()
-
-    # In your templates directory, create a mobile version of your site (mobile.index.html).
-    # Likewise, add your desired desktop template as well (desktop.index.html).
 
     if "iphone" in user_agent:
         return render_template('mobile.index.html')
