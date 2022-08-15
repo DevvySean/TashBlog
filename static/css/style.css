@@ -14,10 +14,48 @@ body {
 }
 
 p {
-    font-size: 20px;
+    font-size: 15px;
     color: black;
     font-family: Verdana, sans-serif;
 
 }
 
+
+.img-fluid {
+    padding-right: 10px;
+}
+
+.accordion {
+    background: #f9d4bf;
+}
+
+.accordion-button {
+    background: #f9d4bf;
+
+}
+
+.accordion-collapse collapse {
+    background: #f9d4bf;
+}
+
+.accordion-button:focus {
+   background: #f9d4bf;
+}
+
+.accordion-button:not(.collapsed) {
+   background: #f9d4bf;
+   color:black
+}
+
+.accordion-header {
+   background: #f9d4bf;
+}
+
+.accordion-button:collapsed {
+    background: #f9d4bf;
+}
+
+.button:focus:not(:focus-visible) {
+    background: #f9d4bf;
+}
 
